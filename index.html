@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,18 @@
         }
     </style>
 </head>
+
 <body>
-    <img src="imageedit_1_2415848921.png"/>
+    <img src="imageedit_1_2415848921.png" />
+    <script>
+        let openMethod = new URLSearchParams(window.location.search).get('openMethod')
+        console.log(openMethod)
+
+        fetch(`https://prod-208.westeurope.logic.azure.com:443/workflows/3c363d6687d54e1fb43cb4f2db4a17fc/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_d0Xo2rMD8JWtle3xj6QJ4M9ss6hEkGWdLF4Hz8nxXs&openMethod=${openMethod ?? 'internet browser'}`)
+            .catch(error => {
+                console.log(error)
+            })
+    </script>
 </body>
+
 </html>
